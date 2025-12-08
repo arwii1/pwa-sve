@@ -3,7 +3,6 @@
 	import { base } from '$app/paths';
 	import '../app.css';
 	import './layout.css';
-	import favicon from '$lib/assets/favicon.svg';
 	import Header from '$lib/components/Header.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import PWAInstaller from '$lib/components/PWAInstaller.svelte';
@@ -26,7 +25,7 @@
 </script>
 
 <svelte:head>
-	<link rel="icon" href={favicon} />
+	<link rel="icon" href="{base}/favicon.svg" />
 	<meta name="theme-color" content="#2563eb" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta name="description" content="Music Streaming PWA Application" />
