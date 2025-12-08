@@ -6,6 +6,9 @@ const config = {
 	preprocess: vitePreprocess(),
 
 	kit: {
+		paths: {
+			base: '/pwa-sve'
+		},
 		adapter: adapter({
 			fallback: 'index.html',
             strict: false
