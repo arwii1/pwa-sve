@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite';
 import { SvelteKitPWA } from '@vite-pwa/sveltekit';
 
 export default defineConfig({
-	base: './',
+	base: '/pwa-sve/',
 	plugins: [
 		tailwindcss(),
 		sveltekit(),
@@ -24,8 +24,8 @@ export default defineConfig({
 				theme_color: '#2563eb',
 				background_color: '#ffffff',
 				display: 'standalone',
-				scope: '/',
-				start_url: '/',
+				scope: '/pwa-sve/',
+				start_url: '/pwa-sve/',
 				orientation: 'portrait-primary',
 				categories: ['music', 'entertainment'],
 				icons: [
