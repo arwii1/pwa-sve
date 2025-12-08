@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { base } from '$app/paths';
 	import '../app.css';
 	import './layout.css';
 	import favicon from '$lib/assets/favicon.svg';
@@ -10,9 +11,10 @@
 	let { children } = $props();
 
 	onMount(() => {
-		// Регистрируем Service Worker
+		// Регистрируем Service Worker с правильным base path
 		if ('serviceWorker' in navigator) {
-			navigator.serviceWorker.register('/service-worker.js')
+			const swPath = base ? `${base}/service-worker.js` : '/service-worker.js';
+			navigator.serviceWorker.register(swPath)
 				.then(registration => {
 					console.log('✓ Service Worker registered:', registration);
 				})
@@ -28,8 +30,8 @@
 	<meta name="theme-color" content="#2563eb" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta name="description" content="Music Streaming PWA Application" />
-	<link rel="manifest" href="/manifest.webmanifest" />
-	<link rel="apple-touch-icon" href="/pwa-192x192.svg" />
+	<link rel="manifest" href="{base}/manifest.webmanifest" />
+	<link rel="apple-touch-icon" href="{base}/pwa-192x192.svg" />
 	<meta name="mobile-web-app-capable" content="yes" />
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 	<meta name="apple-mobile-web-app-title" content="Shop" />
