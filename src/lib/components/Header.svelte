@@ -2,31 +2,21 @@
 	import { page } from '$app/stores';
 	import { base } from '$app/paths';
 	import { favoritesStore } from '$lib/stores/favorites';
-
-	let isMenuOpen = $state(false);
-
-	function toggleMenu() {
-		isMenuOpen = !isMenuOpen;
-	}
-
-	function closeMenu() {
-		isMenuOpen = false;
-	}
 </script>
 
 <header class="sticky top-0 z-50 bg-white shadow-lg">
 	<div class="container mx-auto px-4 py-4">
 		<div class="flex items-center justify-between gap-4">
-			<a href="{base}" class="flex-shrink-0 font-bold text-xl" onclick={() => closeMenu()}>
+			<a href="{base}" class="flex-shrink-0 font-bold text-xl">
 				Shop
 			</a>
 
 			<div class="flex items-center space-x-6 flex-shrink-0">
-				<nav class="hidden md:flex space-x-6">
+				<nav class="flex space-x-6">
 					<a
 						href="{base}"
 						class="text-gray-700 hover:text-blue-600 transition-colors"
-						class:active={$page.url.pathname === '/'}
+						class:active={$page.url.pathname === base || $page.url.pathname === base + '/'}
 					>
 						Каталог
 					</a>
@@ -36,7 +26,6 @@
 					<a
 						href="{base}/favorites"
 						class="text-gray-700 hover:text-blue-600 transition-colors"
-						onclick={() => closeMenu()}
 						aria-label="Избранное"
 					>
 						<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -54,39 +43,7 @@
 						</span>
 					{/if}
 				</div>
-
-				<button
-					onclick={() => toggleMenu()}
-					class="md:hidden text-gray-700 hover:text-blue-600"
-					aria-label="Открыть меню"
-				>
-					<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-						<path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="2"
-							d="M4 6h16M4 12h16M4 18h16"
-						/>
-					</svg>
-				</button>
 			</div>
 		</div>
-
-		{#if isMenuOpen}
-			<nav class="md:hidden bg-gray-50 border-t border-gray-200 mt-4">
-				<div class="px-4 py-4 space-y-3">
-					<a
-						href="/"
-						class="block text-gray-700 hover:text-blue-600 transition-colors py-2"
-						class:active={$page.url.pathname === '/'}
-						onclick={() => closeMenu()}
-					>
-						Каталог
-					</a>
-				</div>
-			</nav>
-		{/if}
 	</div>
 </header>
-
-
