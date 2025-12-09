@@ -16,7 +16,6 @@
 					<a
 						href="{base}"
 						class="text-gray-700 hover:text-blue-600 transition-colors"
-						class:active={$page.url.pathname === base || $page.url.pathname === base + '/'}
 					>
 						Каталог
 					</a>
