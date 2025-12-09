@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores';
+	import { base } from '$app/paths';
 	import { favoritesStore } from '$lib/stores/favorites';
 
 	let isMenuOpen = $state(false);
@@ -16,7 +17,7 @@
 <header class="sticky top-0 z-50 bg-white shadow-lg">
 	<div class="container mx-auto px-4 py-4">
 		<div class="flex items-center justify-between gap-4">
-			<a href="/" class="flex-shrink-0 font-bold text-xl" onclick={() => closeMenu()}>
+			<a href="{base}" class="flex-shrink-0 font-bold text-xl" onclick={() => closeMenu()}>
 				Shop
 			</a>
 
@@ -34,7 +35,7 @@
 
 				<div class="relative">
 					<a
-						href="/favorites"
+						href="{base}/favorites"
 						class="text-gray-700 hover:text-blue-600 transition-colors"
 						onclick={() => closeMenu()}
 						aria-label="Избранное"

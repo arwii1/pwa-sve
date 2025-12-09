@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 	import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
 	import { MOCK_TRACKS } from '$lib/models/track.model';
 	import { favoritesStore } from '$lib/stores/favorites';
@@ -8,7 +9,7 @@
 	);
 </script>
 
-<Breadcrumbs items={[{ label: 'Каталог', href: '/' }, { label: 'Избранное', href: '/favorites' }]} />
+<Breadcrumbs items={[{ label: 'Каталог', href: base }, { label: 'Избранное', href: base + '/favorites' }]} />
 
 <div class="mb-8">
 	<h1 class="text-3xl font-bold text-gray-900 mb-6">Мои избранные треки</h1>
@@ -25,7 +26,7 @@
 				<div class="text-center">
 					<p class="text-gray-400 text-lg">Избранное пусто</p>
 					<p class="text-gray-500 text-sm mt-2">
-						<a href="/" class="text-blue-600 hover:text-blue-700">Добавьте треки из каталога</a>
+						<a href="{base}" class="text-blue-600 hover:text-blue-700">Добавьте треки из каталога</a>
 					</p>
 				</div>
 			</div>
