@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 	interface BreadcrumbItem {
 		label: string;
 		href: string;
@@ -11,7 +12,7 @@
 	let { items = [] }: Props = $props();
 
 	const defaultItems: BreadcrumbItem[] = [
-		{ label: 'Главная', href: '/' }
+		{ label: 'Главная', href: base }
 	];
 
 	let breadcrumbs = $derived([...defaultItems, ...items]);
