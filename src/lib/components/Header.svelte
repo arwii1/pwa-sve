@@ -22,10 +22,9 @@
 			</a>
 
 			<div class="flex items-center space-x-6 flex-shrink-0">
-				<!-- Navigation links -->
 				<nav class="hidden md:flex space-x-6">
 					<a
-						href="/"
+						href="{base}"
 						class="text-gray-700 hover:text-blue-600 transition-colors"
 						class:active={$page.url.pathname === '/'}
 					>
